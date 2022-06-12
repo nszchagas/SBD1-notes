@@ -1,0 +1,7 @@
+Para rodar o programa execute o arquivo main.exe e siga as intruções.
+
+Caso deseje, utilize o compilador de sua preferência para compilar o código fonte. Utilizando o GCC no windows, siga o comando:
+
+gcc .\aula1exer1_NicolasSouza_20-0042327.c
+
+Em seguida, execute o arquivo .exe gerado na pasta.
