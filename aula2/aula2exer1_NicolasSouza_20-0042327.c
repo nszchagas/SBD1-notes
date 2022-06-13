@@ -13,27 +13,14 @@ typedef struct
     long long int cpf_proprietario, renavam;
 } Veiculo;
 
-void listaPessoas()
+
+void criaArquivos()
 {
-    system("clear||cls");
-    Pessoa pessoa;
-    FILE *arquivo;
-    arquivo = fopen("pessoas.bin", "rb");
-    printf("\n--- PESSOAS CADASTRADAS ---\n");
-    if (arquivo != NULL)
-    {
-        printf("|     CPF     |     Nome\n");
-        while (!feof(arquivo) && fread(&pessoa, sizeof(Pessoa), 1, arquivo) == 1)
-        {
-            printf("| %-011lld | %s \n", pessoa.cpf, pessoa.nome);
-        }
-        fclose(arquivo);
-    }
-    else
-    {
-        printf("Nenhum registro encontrado.\n");
-    }
-    printf("\n----------------------------\n");
+    FILE *pessoas, *veiculos;
+    pessoas = fopen("pessoas.bin", "ab"); // O modo append (a) cria o arquivo apenas se não existir.
+    veiculos = fopen("veiculos.bin", "ab");
+    fclose(pessoas);
+    fclose(veiculos);
 }
 
 // Retorna -1 se o CPF já estiver cadastrado.
@@ -162,10 +149,8 @@ void cadastraVeiculo()
     }
     else
     {
-        shiftArquivo(posicao, 'p');
-        fseek(arquivo, posicao * sizeof(Pessoa), SEEK_SET);
-        fwrite(&veiculo, sizeof(Pessoa), 1, arquivo);
-        fclose(arquivo);
+        shiftArquivo(posicao, 'v');
+        fseek(arquivo, posicao * sizeof(Veiculo), SEEK_SET);
         fwrite(&veiculo, sizeof(Veiculo), 1, arquivo);
         fclose(arquivo);
     }
@@ -215,7 +200,7 @@ void listaVeiculos()
         printf(" RENAVAM   | CPF do proprietario |       Modelo       | Placa\n");
         while (!feof(arquivo) && fread(&veiculo, sizeof(Veiculo), 1, arquivo) == 1)
         {
-            printf("%09lld | %-21lld | %-20s | %s\n", veiculo.renavam, veiculo.cpf_proprietario, veiculo.modelo, veiculo.placa);
+            printf("%09lld | %21lld | %-20s | %s\n", veiculo.renavam, veiculo.cpf_proprietario, veiculo.modelo, veiculo.placa);
         }
         fclose(arquivo);
     }
@@ -226,14 +211,30 @@ void listaVeiculos()
     printf("\n----------------------------\n");
 }
 
-void criaArquivos()
+void listaPessoas()
 {
-    FILE *pessoas, *veiculos;
-    pessoas = fopen("pessoas.bin", "ab"); // O modo append (a) cria o arquivo apenas se não existir.
-    veiculos = fopen("veiculos.bin", "ab");
-    fclose(pessoas);
-    fclose(veiculos);
+    system("clear||cls");
+    Pessoa pessoa;
+    FILE *arquivo;
+    arquivo = fopen("pessoas.bin", "rb");
+    printf("\n--- PESSOAS CADASTRADAS ---\n");
+    if (arquivo != NULL)
+    {
+        printf("|     CPF     |     Nome\n");
+        while (!feof(arquivo) && fread(&pessoa, sizeof(Pessoa), 1, arquivo) == 1)
+        {
+            printf("| %11lld | %s \n", pessoa.cpf, pessoa.nome);
+        }
+        fclose(arquivo);
+    }
+    else
+    {
+        printf("Nenhum registro encontrado.\n");
+    }
+    printf("\n----------------------------\n");
 }
+
+
 
 int main()
 {
