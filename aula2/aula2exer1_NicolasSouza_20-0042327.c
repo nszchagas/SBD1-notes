@@ -9,10 +9,9 @@ typedef struct
 
 typedef struct
 {
-    char modelo[20], placa[8];
+    char modelo[20], placa[7];
     long long int cpf_proprietario, renavam;
 } Veiculo;
-
 
 void criaArquivos()
 {
@@ -53,13 +52,15 @@ long int getPosicaoInsercaoPessoa(long long int novo_cpf)
 
 long int getPosicaoInsercaoVeiculo(long long int novo_renavam)
 {
+
     long int posicao = 0;
     int encontrou = 0;
     FILE *arquivo;
     arquivo = fopen("veiculos.bin", "rb");
     Veiculo veiculo;
-    while (!feof(arquivo) && fread(&veiculo, sizeof(Pessoa), 1, arquivo) == 1 && encontrou == 0)
+    while (!feof(arquivo) && fread(&veiculo, sizeof(Veiculo), 1, arquivo) == 1 && encontrou == 0)
     {
+
         if (veiculo.renavam == novo_renavam)
         {
             fclose(arquivo);
@@ -118,7 +119,7 @@ void cadastraVeiculo()
 {
     FILE *arquivo;
     Veiculo veiculo;
-    arquivo = fopen("veiculos.bin", "ab");
+    arquivo = fopen("veiculos.bin", "r+b");
 
     printf("Insira os dados do veiculo:\n");
 
@@ -139,6 +140,7 @@ void cadastraVeiculo()
 
     printf("Renavam:");
     scanf(" %lld", &veiculo.renavam);
+
     fflush(stdin);
     long int posicao = getPosicaoInsercaoVeiculo(veiculo.renavam);
 
@@ -197,10 +199,10 @@ void listaVeiculos()
     Veiculo veiculo;
     if (arquivo != NULL)
     {
-        printf(" RENAVAM   | CPF do proprietario |       Modelo       | Placa\n");
+        printf("  RENAVAM   | CPF do proprietario |        Modelo        | Placa\n");
         while (!feof(arquivo) && fread(&veiculo, sizeof(Veiculo), 1, arquivo) == 1)
         {
-            printf("%09lld | %21lld | %-20s | %s\n", veiculo.renavam, veiculo.cpf_proprietario, veiculo.modelo, veiculo.placa);
+            printf("%011lld |     %011lld     | %-20s | %s\n", veiculo.renavam, veiculo.cpf_proprietario, veiculo.modelo, veiculo.placa);
         }
         fclose(arquivo);
     }
@@ -223,7 +225,7 @@ void listaPessoas()
         printf("|     CPF     |     Nome\n");
         while (!feof(arquivo) && fread(&pessoa, sizeof(Pessoa), 1, arquivo) == 1)
         {
-            printf("| %11lld | %s \n", pessoa.cpf, pessoa.nome);
+            printf("| %011lld | %s \n", pessoa.cpf, pessoa.nome);
         }
         fclose(arquivo);
     }
