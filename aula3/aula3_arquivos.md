@@ -89,3 +89,8 @@ A cardinalidade para o relacionamento entre as entidades A e B pode ser:
 - Muitos para muitos (n:m): uma entidade de A está associada a qualquer quantidade da entidade B, e uma entidade de B pode estar associada a qualquer quantidade de entidades de A.
 
 <!-- @TODO: inserir imagens dos slides 7, 13, 15, 19, 20,-->
+
+### Exercício slide 21:
+
+Descrever as entidades: quais são os atributos necessários?
+Vida acadêmica: notas,
