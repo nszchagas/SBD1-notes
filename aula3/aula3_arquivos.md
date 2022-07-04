@@ -94,3 +94,6 @@ A cardinalidade para o relacionamento entre as entidades A e B pode ser:
 
 Descrever as entidades: quais são os atributos necessários?
 Vida acadêmica: notas,
+
+
+
