@@ -104,3 +104,5 @@ Consiste em operadores que realizam ações sobre as relações. Podem ser class
 
 - Operadores de Conjuntos: operadores típicos da álgebra, como união, interseção, diferença e produto cartesiano;
 - Operadores Relacionais: operadores especiais definidos especialmente para manipulação de tuplas, como seleção, junção e projeção.
+- Operadores de Conjuntos: operadores típicos da álgebra, como união, interseção, diferença e produto cartesiano;
+- Operadores Relacionais: operadores especiais definidos especialmente para manipulação de tuplas, como seleção, junção e projeção.
