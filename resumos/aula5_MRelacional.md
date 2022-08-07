@@ -11,9 +11,9 @@
 
 O modelo relacional representa os dados em um BD por meio de um conjunto de relações (tabelas).
 
-- Tupla: cada instância do esquema.
+- Tupla: cada instância do esquema. 
 
-- Esquema: conjunto de atributos que descreve as características dos elementos.
+- Esquema: conjunto de atributos que descreve as características dos elementos. 
 
 - Relação: tabela completa.
 
@@ -21,25 +21,25 @@ O modelo relacional representa os dados em um BD por meio de um conjunto de rela
 
 - Domínio: conjunto dos valores possíveis para um atributo.
 
-- Grau da relação: a quantidade de atributos de uma relação.
+- Grau da relação: a quantidade de atributos de uma relação. 
 
 ![Imagem.](imgs/15-26-31.png)
 
 ### Características das relações
 
-- Não há tuplas duplicadas em uma relação.
+- Não há tuplas duplicadas em uma relação. 
 
 - A ordem das tuplas não é relevante para diferenciá-las.
 
-- Existem ordem dos valores nas tuplas, já que o esquema é definido como um conjunto de atributos.
+- Existem ordem dos valores nas tuplas, já que o esquema é definido como um conjunto de atributos. 
 
-- Os valores dos atributos devem ser atômicos, não sendo divisíveis em componentes.
+- Os valores dos atributos devem ser atômicos, não sendo divisíveis em componentes. 
+    
 
-  - Atributos multivalorados são representados por meio de **outra relação**.
-  - Atributos **compostos** são pelos seus componentes.
+    - Atributos multivalorados são representados por meio de **outra relação**.
+    - Atributos **compostos** são pelos seus componentes. 
 
 <!-- @TODO: completar essa parte até slide 11 -->
 
-<!-- @TODO: completar do slide 14 até 17 -->
 
-<!-- @TODO: finalizar resumo desses slides -->
+<!-- @TODO: completar do slide 14 até 17 -->
