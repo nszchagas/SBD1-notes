@@ -6,3 +6,6 @@
 aula_*.pdf
 .vscode
 *.chc
+.idea 
+/entregas/*/originais
+/mysql
