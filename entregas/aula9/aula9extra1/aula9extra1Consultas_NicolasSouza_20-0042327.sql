@@ -33,7 +33,7 @@ select c.nome Cidade, e.nome Estado, e.sigla Sigla from CIDADE c, ESTADO e
 -- nele, mostrando o seu nome e a quantidade de habitantes em ordem crescente de nome de estado e nome de cidade.
 select c.nome Nome, e.nome Estado, e.sigla, c.habitantes Habitantes from ESTADO e, CIDADE c 
 	where 		e.sigla = c.sigla and e.sigla = 'SP' 
-	order by 	c.habitantes, c.nome
+	order by 	e.nome, c.nome
 
 
 
